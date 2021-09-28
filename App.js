@@ -1,35 +1,52 @@
 import React from "react";
-import {
-  Dimensions,
-  StyleSheet,
-  SafeAreaView,
-  Alert,
-  Button,
-  StatusBar,
-  Platform,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
+import AppText from "./app/components/AppText";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import AppButton from "./app/components/AppButton";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import Card from "./app/components/Card";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 
 export default function App() {
-  console.log(Dimensions.get("screen"));
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <View
-        style={{
-          backgroundColor: "dodgerblue",
-          width: "100%",
-          height: "30%",
-        }}
-      ></View>
-    </SafeAreaView>
-  );
+  return <ListingDetailsScreen />;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-});
+// {
+//   /* <View
+//       style={{
+//         backgroundColor: "#fff",
+//         flex: 1,
+//         flexDirection: "row",
+//         paddingTop: (Platform.OS = "android" ? 40 : 0),
+//         justifyContent: "center",
+//         alignItems: "center",
+//         // alignContent: "center",
+//         // flexWrap: "wrap",
+//       }}
+//     >
+//       <View
+//         style={{
+//           backgroundColor: "dodgerblue",
+//           width: 100,
+//           height: 100,
+//         }}
+//       />
+//       <View
+//         style={{
+//           backgroundColor: "gold",
+//           width: 100,
+//           height: 100,
+//           top: 20,
+//           left: 20,
+//           position: "absolute",
+//         }}
+//       />
+//       <View
+//         style={{
+//           backgroundColor: "tomato",
+//           width: 100,
+//           height: 100,
+//         }}
+//       />
+//     </View> */
+// }
