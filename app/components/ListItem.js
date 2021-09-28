@@ -1,9 +1,8 @@
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
-import App from "../../App";
 import AppText from "./AppText";
 
-function ListItem(title, subTitle, image) {
+function ListItem({ title, subTitle, image }) {
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={image} />
