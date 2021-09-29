@@ -13,13 +13,13 @@ import colors from "../config/colors";
 function WelcomeScreen(props) {
   return (
     <ImageBackground
-      blurRadius={Platform.OS === "android" ? 3 : 10}
+      blurRadius={Platform.OS === "android" ? 0.5 : 7}
       style={styles.background}
-      source={require("../assets/background.jpg")}
+      source={require("../assets/volunteer.jpg")}
     >
       <View style={styles.logoContainer}>
         <Image style={styles.logo} source={require("../assets/logo-red.png")} />
-        <Text style={styles.tagline}>Sell What You Don't Need</Text>
+        <Text style={styles.tagline}>Help And Be Helped</Text>
       </View>
       <View style={styles.buttonsContainer}>
         <AppButton title="Login" />

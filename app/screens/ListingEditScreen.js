@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 
 import {
   AppForm as Form,
@@ -9,6 +10,7 @@ import {
   SubmitButton,
 } from "../components/forms";
 import Screen from "../components/Screen";
+import colors from "../config/colors";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -18,9 +20,30 @@ const validationSchema = Yup.object().shape({
 });
 
 const categories = [
-  { label: "Furniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Camera", value: 3 },
+  {
+    label: "Shop",
+    value: 1,
+    backgroundColor: "#C94277",
+    icon: "shopping",
+  },
+  {
+    label: "Social",
+    value: 2,
+    backgroundColor: "#8AEA92",
+    icon: "mail",
+  },
+  {
+    label: "Labor",
+    value: 3,
+    backgroundColor: "#F8333C",
+    icon: "firework",
+  },
+  {
+    label: "Covid",
+    value: 3,
+    backgroundColor: "#2B9EB3",
+    icon: "lock",
+  },
 ];
 
 function ListingEditScreen() {
@@ -37,8 +60,15 @@ function ListingEditScreen() {
         validationSchema={validationSchema}
       >
         <FormField maxLength={255} name="title" placeholder="Title" />
-        <FormField maxLength={8} name="price" placeholder="Date" />
-        <Picker items={categories} name="category" placeholder="Category" />
+        <FormField maxLength={8} name="price" placeholder="Date" width={120} />
+        <Picker
+          items={categories}
+          name="category"
+          numberOfColumns={3}
+          PickerItemComponent={CategoryPickerItem}
+          placeholder="Category"
+          width="50%"
+        />
         <FormField
           maxLength={255}
           multiline
