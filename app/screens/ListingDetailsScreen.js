@@ -8,10 +8,10 @@ import ListItem from "../components/ListItem";
 function ListingDetailsScreen(props) {
   return (
     <View>
-      <Image style={styles.image} source={require("../assets/jacket.jpg")} />
+      <Image style={styles.image} source={require("../assets/mapa1.jpg")} />
       <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>Red jacket for sale</AppText>
-        <AppText style={styles.price}>$100</AppText>
+        <AppText style={styles.title}>Groceries</AppText>
+        <AppText style={styles.subTitle}>30.09 9:30</AppText>
         <View style={styles.userContainer}>
           <ListItem
             image={require("../assets/wielas.jpg")}
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "500",
   },
-  price: {
+  subTitle: {
     color: colors.secondary,
     fontWeight: "bold",
     fontSize: 20,
