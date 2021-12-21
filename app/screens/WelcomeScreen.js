@@ -11,7 +11,7 @@ import AppButton from "../components/AppButton";
 import colors from "../config/colors";
 import LoginScreen from "./LoginScreen";
 
-function WelcomeScreen(props) {
+function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground
       blurRadius={Platform.OS === "android" ? 0.5 : 7}
@@ -23,8 +23,12 @@ function WelcomeScreen(props) {
         <Text style={styles.tagline}>Help And Be Helped</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton title="Login" />
-        <AppButton title="Register" color="secondary" />
+        <AppButton title="Login" onPress={() => navigation.navigate("Login")} />
+        <AppButton
+          title="Register"
+          color="secondary"
+          onPress={() => navigation.navigate("Register")}
+        />
       </View>
     </ImageBackground>
   );

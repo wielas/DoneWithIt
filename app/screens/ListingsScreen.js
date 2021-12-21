@@ -8,18 +8,20 @@ const listings = [
   {
     id: 1,
     title: "Groceries",
-    subTitle: "30.09 9:30 Kobylepole 5, Poznań",
+    subTitle: "Kobylepole 5, Poznań",
     image: require("../assets/mapa1.jpg"),
+    date: "25.11.2021",
   },
   {
     id: 2,
     title: "Entertain the lonely old folk",
     subTitle: "Sielska 13, Poznań",
     image: require("../assets/mapa4.jpg"),
+    date: "30.11.2021",
   },
 ];
 
-function ListingScreen(props) {
+function ListingScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <FlatList
@@ -30,6 +32,7 @@ function ListingScreen(props) {
             title={item.title}
             subTitle={item.subTitle}
             image={item.image}
+            onPress={() => navigation.navigate("ListingDetails", item)}
           />
         )}
       />
