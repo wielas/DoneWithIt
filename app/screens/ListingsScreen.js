@@ -4,6 +4,14 @@ import Screen from "../components/Screen";
 import Card from "../components/Card";
 import colors from "../config/colors";
 
+import { AdMobBanner } from "expo-ads-admob";
+import Ad from "./Ad";
+
+function bannerError() {
+  console.log("Banner error");
+  return;
+}
+
 const listings = [
   {
     id: 1,
@@ -19,7 +27,33 @@ const listings = [
     image: require("../assets/mapa4.jpg"),
     date: "30.11.2021",
   },
+  {
+    id: 3,
+    title: "Ad",
+  },
+  {
+    id: 4,
+    title: "Deliver food here",
+    subTitle: "Sielska 13, Poznań",
+    image: require("../assets/mapa4.jpg"),
+    date: "30.11.2021",
+  },
 ];
+
+function returnAdOrCard({item}) {
+  if (item.title !== "Ad") {
+    return (
+      <Card
+        title={item.title}
+        subTitle={item.subTitle}
+        image={item.image}
+        onPress={() => navigation.navigate("ListingDetails", item)}
+      />
+    )
+  } else {
+    return <Ad/>
+  }
+}
 
 function ListingScreen({ navigation }) {
   return (
@@ -28,12 +62,7 @@ function ListingScreen({ navigation }) {
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
-          <Card
-            title={item.title}
-            subTitle={item.subTitle}
-            image={item.image}
-            onPress={() => navigation.navigate("ListingDetails", item)}
-          />
+          returnAdOrCard({item})
         )}
       />
     </Screen>
